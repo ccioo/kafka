@@ -1,0 +1,14 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.type.mapping: foo:com.message.model.Foo1,bar:com.message.model.Bar1
+    consumer:
+      group-id: kafka3
+      auto-offset-reset: earliest
+      properties:
+        isolation.level: read_committed
+
